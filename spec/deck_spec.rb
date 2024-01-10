@@ -18,6 +18,11 @@ RSpec.describe Deck do
     expect(@deck.cards).to eq(@cards)
   end
 
+  it 'returns rank of card based on given index' do
+    expect(@deck.rank_of_card_at(0)).to eq(12)
+    expect(@deck.rank_of_card_at(2)).to eq(14)
+  end
+
 
 
 end
@@ -25,14 +30,6 @@ end
 
 
 
-# pry(main)> deck.cards
-# #=> [#<Card:0x007fbfd18490e8...>, #<Card:0x007fbfd19f4fa0...>, #<Card:0x007fbfd18555a0...>]
-
-# pry(main)> deck.rank_of_card_at(0)
-# #=> 12
-
-# pry(main)> deck.rank_of_card_at(2)
-# #=> 14
 
 # pry(main)> deck.cards
 # #=> [#<Card:0x007fbfd18490e8...>, #<Card:0x007fbfd19f4fa0...>, #<Card:0x007fbfd18555a0...>]
