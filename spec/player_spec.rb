@@ -18,9 +18,14 @@ RSpec.describe Deck do
 
   it 'has attributes' do
     expect(@player.name).to eq("Clarisa")
-    expect(@player.deck).to eq(@cards)
+    expect(@player.deck).to eq(@deck)
+    # expect(@player.deck).to be_a(Deck)
   end
 
+  it 'starts off not losing' do
+    expect(@player.has_lost?).to be false
+    # expect(@player.deck.remove_card).to eq()
+  end
 
 
 end
