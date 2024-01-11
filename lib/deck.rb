@@ -19,5 +19,11 @@ class Deck
     high_rankers
   end
 
+  def percent_high_ranking
+    # high ranking / all cards = % * 100 = YAY
+    p_value = (high_ranking_cards.count.to_f / cards.count) * 100
+    p_value.round(2)
+  end
+
 
 end

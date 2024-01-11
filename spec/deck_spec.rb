@@ -27,18 +27,14 @@ RSpec.describe Deck do
     expect(@deck.high_ranking_cards).to eq([@card1, @card3])
   end
 
+  it 'returns the percentage of cards that are high ranking' do
+    expect(@deck.percent_high_ranking).to eq(66.67)
+  end
+
 end
 
 
 
-
-
-
-# pry(main)>
-# #=> [#<Card:0x007fbfd18490e8...>, #<Card:0x007fbfd18555a0...>]
-
-# pry(main)> deck.percent_high_ranking
-# #=> 66.67
 
 # pry(main)> deck.remove_card
 # #=> #<Card:0x007fbfd18490e8 @rank=12, @suit=:diamond, @value="Queen">
