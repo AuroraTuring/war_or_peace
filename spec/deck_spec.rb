@@ -41,8 +41,9 @@ RSpec.describe Deck do
   it 'will add one card to the bottom of the deck' do
     card4 = Card.new(:club, '5', 5)
 
+    expect(@deck.remove_card).to eq(@card1)
     @deck.add_card(card4)
-    expect(@deck.cards).to eq([@card2, @card3, @card4])
+    expect(@deck.cards).to eq([@card2, @card3, card4])
     expect(@deck.high_ranking_cards).to eq([@card3])
     expect(@deck.percent_high_ranking).to eq(33.33)
   end
