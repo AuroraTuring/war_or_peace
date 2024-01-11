@@ -12,7 +12,7 @@ class Deck
   high_rankers = []
 
   def high_ranking_cards
-    if @cards.rank >= 11
+    if deck.cards.rank >= 11
       high_rankers << card
     end
   end
