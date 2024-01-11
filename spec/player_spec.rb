@@ -24,7 +24,20 @@ RSpec.describe Deck do
 
   it 'starts off not losing' do
     expect(@player.has_lost?).to be false
-    # expect(@player.deck.remove_card).to eq()
+  end
+
+  it 'can remove a card' do
+    expect(@player.deck.remove_card).to eq(@card1)
+  end
+
+  it 'checks if player lost after removing cards' do
+    expect(@player.deck.remove_card).to eq(@card1)
+    expect(@player.has_lost?).to be false
+    expect(@player.deck.remove_card).to eq(@card2)
+    expect(@player.has_lost?).to be false
+    expect(@player.deck.remove_card).to eq(@card3)
+    expect(@player.has_lost?).to be true
+    expect(@player.deck).to eq(@deck)
   end
 
 
