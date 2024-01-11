@@ -9,12 +9,14 @@ class Deck
     cards[placement].rank
   end
 
-  high_rankers = []
-
   def high_ranking_cards
-    if deck.cards.rank >= 11
-      high_rankers << card
+    high_rankers = []
+    cards.each do |card|
+      if card.rank >= 11
+          high_rankers << card
+      end
     end
+    high_rankers
   end
 
 

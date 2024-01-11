@@ -24,7 +24,7 @@ RSpec.describe Deck do
   end
 
   it 'returns only the highest (11+) ranking cards' do
-    expect(@deck.high_ranking_cards).to eq(@card1, @card3)
+    expect(@deck.high_ranking_cards).to eq([@card1, @card3])
   end
 
 end
