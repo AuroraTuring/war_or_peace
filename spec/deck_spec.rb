@@ -23,6 +23,10 @@ RSpec.describe Deck do
     expect(@deck.rank_of_card_at(2)).to eq(14)
   end
 
+  it 'returns only the highest ranking cards (11+)' do
+    expect(@deck.high_ranking_cards).to eq(@card1, @card3)
+  end
+
 
 
 end
@@ -31,10 +35,8 @@ end
 
 
 
-# pry(main)> deck.cards
-# #=> [#<Card:0x007fbfd18490e8...>, #<Card:0x007fbfd19f4fa0...>, #<Card:0x007fbfd18555a0...>]
 
-# pry(main)> deck.high_ranking_cards
+# pry(main)>
 # #=> [#<Card:0x007fbfd18490e8...>, #<Card:0x007fbfd18555a0...>]
 
 # pry(main)> deck.percent_high_ranking
