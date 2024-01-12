@@ -30,6 +30,13 @@ RSpec.describe Turn do
       expect(turn.type).to eq(:basic)
     end
 
+    it 'return whichever player has a higher rank_of_card_at(0)' do
+      # winner = turn.winner
+      # expect(winner).to eq(player1)
+      expect(turn.winner).to eq(player1)
+    end
+
+
 
   end
 
