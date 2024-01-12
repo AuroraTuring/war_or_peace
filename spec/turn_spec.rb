@@ -4,7 +4,7 @@ require './lib/player'
 require './lib/turn'
 
 RSpec.describe Turn do
-  describe 'basic turn type' do
+  describe ':basic turn type' do
     let(:card1) { Card.new(:heart, 'Jack', 11) }
     let(:card2) { Card.new(:heart, '10', 10) }
     let(:card3) { Card.new(:heart, '9', 9) }
@@ -24,6 +24,10 @@ RSpec.describe Turn do
       expect(turn.player1).to eq(player1)
       expect(turn.player2).to eq(player2)
       expect(turn.spoils_of_war).to eq([])
+    end
+
+    it 'returns :basic when each players first card is not of identical rank' do
+      expect(turn.type).to eq(:basic)
     end
 
 
