@@ -11,6 +11,8 @@ class Turn
   def type
     if player1.deck.rank_of_card_at(0) != player2.deck.rank_of_card_at(0)
       :basic
+    elsif player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0)
+      :war
     end
   end
 
@@ -21,6 +23,10 @@ class Turn
       players.max_by do |player|
         player.deck.rank_of_card_at(0)
       end
+    elsif type == :war
+        players.max_by do |player|
+          player.deck.rank_of_card_at(2)
+        end
     end
   end
 
@@ -31,11 +37,15 @@ class Turn
       players.each do |player|
         spoils_of_war << player.deck.cards.shift
       end
+      elsif type == :war
+      players.each do |player|
+        @spoils_of_war += player.deck.cards.shift(3)
+      end
     end
   end
 
   def award_spoils(winner)
-    winner.deck.cards = winner.deck.cards + spoils_of_war
+    winner.deck.cards += spoils_of_war
   end
 
 end
