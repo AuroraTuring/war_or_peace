@@ -43,12 +43,12 @@ RSpec.describe Turn do
     end
 
     it 'awards cards to the winning player' do
+      winner = turn.winner
       turn.pile_cards
 
-      winner = turn.winner
-      turn.award_spoils
-      expect(player1.deck).to eq(deck1.cards + [card1, card3])
-      expect(player2.deck).to eq(deck2.cards - [card1, card3])
+      turn.award_spoils(winner)
+      expect(player1.deck.cards).to eq([card2, card5, card8] + [card1, card3])
+      expect(player2.deck.cards).to eq([card3, card4, card6, card7] - [card3])
     end
 
   end

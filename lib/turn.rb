@@ -34,8 +34,8 @@ class Turn
     end
   end
 
-  def award_spoils
-    winner
+  def award_spoils(winner)
+    winner.deck.cards = winner.deck.cards + spoils_of_war
   end
 
 end
