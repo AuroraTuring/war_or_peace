@@ -41,9 +41,14 @@ class Turn
       players.each do |player|
         spoils_of_war << player.deck.cards.shift
       end
-      elsif type == :war
+    elsif type == :war
       players.each do |player|
         @spoils_of_war += player.deck.cards.shift(3)
+      end
+    elsif type == :mutually_assured_destruction
+      players.each do |player|
+      #each player will remove the top three cards from deck.
+        player.deck.cards.shift(3)
       end
     end
   end
