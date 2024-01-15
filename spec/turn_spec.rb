@@ -82,6 +82,15 @@ RSpec.describe Turn do
       expect(turn.spoils_of_war).to eq([card1, card2, card5, card4, card3, card6])
     end
 
+    it 'awards cards to the winning player' do
+      winner = turn.winner
+      turn.pile_cards
+
+      turn.award_spoils(winner)
+      expect(player1.deck.cards).to eq([card8])
+      expect(player2.deck.cards).to eq([card7, card1, card2, card5, card4, card3, card6])
+    end
+
   end
 
 end
