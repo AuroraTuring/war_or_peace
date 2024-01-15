@@ -26,9 +26,11 @@ class Turn
         player.deck.rank_of_card_at(0)
       end
     elsif type == :war
-        players.max_by do |player|
-          player.deck.rank_of_card_at(2)
-        end
+      players.max_by do |player|
+        player.deck.rank_of_card_at(2)
+      end
+    else
+      "No Winner"
     end
   end
 
