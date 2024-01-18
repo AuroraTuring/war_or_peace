@@ -23,6 +23,40 @@ class Game
   end
 
   def go
+    counter = 0
+
+    # keep playing unless has_lost?, or counter = 1,000,000, or
+    until player1.has_lost? || counter == 1_000_000 || player2.has_lost?
+      # increase the counter by 1 each turn.
+      counter += 1
+      # each time, take a new turn.
+      turn = Turn.new(player1, player2)
+      winner = turn.winner
+
+      if turn.type == :mutually_assured_destruction
+        turn.pile_cards
+        puts "Turn #{counter}: *mutually assured destruction* - 6 cards removed from play!"
+      elsif turn.type == :war
+        turn.pile_cards
+        turn.award_spoils(winner)
+        puts "Turn #{counter}: WAR - #{winner.name} won 6 cards!"
+      # with a :basic turn,
+      elsif turn.type == :basic
+        turn.pile_cards
+        # award the spoils to the #winner.
+        turn.award_spoils(winner)
+        puts "Turn #{counter}: #{winner.name} won 2 cards!"
+      end
+
+      if counter == 1_000_000
+        return puts "---- DRAW ----"
+      elsif turn.player1.has_lost?
+        return puts "*~*~*~* #{player2.name} has won the game! *~*~*~*"
+      elsif turn.player2.has_lost?
+        return puts "*~*~*~* #{player1.name} has won the game! *~*~*~*"
+      end
+
+    end
 
   end
 
