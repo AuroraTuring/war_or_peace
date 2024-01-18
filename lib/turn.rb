@@ -29,7 +29,7 @@ class Turn
       players.max_by do |player|
         player.deck.rank_of_card_at(2)
       end
-    else
+    elsif type == :mutually_assured_destruction
       "No Winner"
     end
   end
